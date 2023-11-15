@@ -59,6 +59,7 @@ function playNotes() {
 
 function startNote(noteDetail, gain) {
     const gainNode = audioContext.createGain()
+    gainNode.gain.exponentialRampToValueAtTime( 0.0001, audioContext.currentTime + 1);
     gainNode.gain.value = gain
     const oscillator = audioContext.createOscillator()
     oscillator.frequency.value = noteDetail.frequency
